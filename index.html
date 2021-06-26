@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <style>
-    html {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+	iframe {
+		/* This is likely overly thorough. */
+		position: fixed;
+
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+
+		width: 100%;
+		height: 100%;
+
+		border: none;
+
+		padding: 0;
+
+		overflow: scroll;
+	}
+
+	a[rel="me"] {
+		display: none;
+	}
 </style>
-🔜
-<a href="https://blog.schichler.dev" title="Blog" aria-label="Blog">📃</a>
+<iframe src="https://schichler.carrd.co"></iframe>
+<script>
+	// Sorry. This is a cost-saving measure. I do use Carrd Pro, though.
+	let iframe = document.getElementsByTagName("iframe")[0];
+	let mirroredHash = window.location.hash;
+	iframe.src += mirroredHash;
+
+	window.addEventListener("hashchange", () => {
+		let hash = window.location.hash;
+		if (hash !== mirroredHash) {
+			iframe.src = iframe.src.replace(/#.*/, "") + hash;
+		}
+	});
+
+	window.addEventListener("message", (event) => {
+		if (event.origin === "https://schichler.carrd.co" && event.data.setHash !== undefined) {
+			mirroredHash = event.data.setHash;
+			window.location.hash = mirroredHash;
+		}
+	});
+</script>
+<!-- <a href="https://blog.schichler.dev" title="Blog" aria-label="Blog">📃</a> -->
 <a rel="me" href="https://hmm.schichler.dev/@Tamme" title="Mastodon" aria-label="Mastodon">🐘</a>
