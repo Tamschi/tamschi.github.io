@@ -74,6 +74,10 @@
 			window.location.hash = mirroredHash;
 		}
 	});
+
+	window.addEventListener("resize", () => {
+		iframe.contentWindow.resizeTo(window.innerWidth, window.innerHeight);
+	});
 </script>
 <!-- <a href="https://blog.schichler.dev" title="Blog" aria-label="Blog">📃</a> -->
 <a rel="me" href="https://hmm.schichler.dev/@Tamme" title="Mastodon" aria-label="Mastodon">🐘</a>
