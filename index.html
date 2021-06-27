@@ -22,8 +22,12 @@
 	<script defer data-domain="schichler.dev" src="https://plausible.io/js/plausible.hash.js"></script>
 	<style>
 		body {
-			/* Mobile Chrome fix. */
-			background-image: linear-gradient(90deg, #9B8BC7 0, #EDA074 calc(100vw + 100vh));
+			/*
+				Mobile Chrome fix. The end stop is at `sqrt(2) * (sqrt(2) * w + (h - w) / sqrt(2))` where h > w,
+				which simplifies really nicely. It appears to still be a tiny bit off (and more so in horizontal mode),
+				but doesn't look really bad anymore like this.
+			*/
+			background-image: linear-gradient(90deg, #9B8BC7 0, #EDA074 calc(100vw + 100wh));
 		}
 
 		iframe {
