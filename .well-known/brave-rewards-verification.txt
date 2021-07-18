@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: schichler.dev
+Token: feaaaa7671b241fb0d2012799016a94bc089ec49097ca9f478758dd9a5c803f8
